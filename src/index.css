@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import "tailwindcss";
+/* Define CSS variables for font and main colors */
+:root {
+  --font-display: "Iosevka Charon Mono", monospace;
+
+  --color-bg-primary: #a8546d;  /* main background */
+  --color-bg-secondary: #734060; /* secondary backgrounds / accents */
+  --color-dark: #362417;         /* text or dark accents */
+  --color-white: #fffbff;        /* for text on dark backgrounds */
+}
+
+/* Apply font globally and default background */
+body {
+  font-family: var(--font-display);
+        /* background-color: var(--color-bg-primary); */
+
+  color: var(--color-dark);
+}
+
