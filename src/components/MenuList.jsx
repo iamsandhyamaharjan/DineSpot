@@ -13,7 +13,7 @@ export default function MenuList({ restaurantId }) {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     useEffect(() => {
-        fetch(`/api/Restaurant/${restaurantId}/menu`)
+        fetch(`https://fakerestaurantapi.runasp.net/api/Restaurant/${restaurantId}/menu`)
             .then(res => res.json())
             .then(json => {
                 console.log(json)
