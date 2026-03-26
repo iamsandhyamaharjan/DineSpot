@@ -10,11 +10,11 @@ export default function Navbar() {
     const darkMode = useSelector((state) => state.theme.darkMode);
     const items = useSelector((state) => state.cart.items);
     const dispatch = useDispatch();
-    const navigate =useNavigate();
+    const navigate = useNavigate();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
+    const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
     // const [cartCount, setCartCount] = useState(1);
-    const handleLogin = () =>{
+    const handleLogin = () => {
         navigate(`/login`)
     }
     return (
@@ -34,8 +34,8 @@ const totalQuantity = items.reduce((sum, item) => sum + item.quantity, 0);
                     )}
                 </button>
                 <div className="" onClick={handleLogin}><i className="fa-solid fa-user"></i>
-</div>
-                <div className="relative cursor-pointer" onClick={()=>dispatch(openCart())}>
+                </div>
+                <div className="relative cursor-pointer" onClick={() => dispatch(openCart())}>
                     <i class="fa-solid fa-cart-arrow-down"></i>
                     {totalQuantity > 0 && (
                         <span className="absolute -top-2 -right-2 bg-red-500 text-black text-xs px-1 rounded-full">{totalQuantity}</span>

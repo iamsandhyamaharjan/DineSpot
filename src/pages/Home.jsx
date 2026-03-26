@@ -10,7 +10,7 @@ export default function Home() {
   const [restaurants, setRestaurant] = useState([]);
 
   useEffect(() => {
-    fetch('/api/Restaurant')
+    fetch('https://fakerestaurantapi.runasp.net/api/Restaurant')
       .then(res => res.json())
       .then(json => {
         console.log(json);
