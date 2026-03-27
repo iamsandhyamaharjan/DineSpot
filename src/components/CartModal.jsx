@@ -9,6 +9,27 @@ export default function CartModal({ isOpen, onClose }) {
     const dispatch = useDispatch();
     const navigate =useNavigate();
 
+    const handlePayment = () => {
+  const totalAmount = cartItems.reduce(
+    (sum, item) => sum + item.itemPrice * item.quantity,
+    0
+  );
+
+  const params = new URLSearchParams({
+    amt: totalAmount,
+    psc: 0,
+    pdc: 0,
+    txAmt: 0,
+    tAmt: totalAmount,
+    pid: "ORDER123", // unique order id
+    scd: "EPAYTEST", // test merchant code
+    su: "http://localhost:5173/success",
+    fu: "http://localhost:5173/failure",
+  });
+
+  window.location.href = `https://uat.esewa.com.np/epay/main?${params}`;
+};
+
     const totalAmount =cartItems.reduce((sum,item)=>sum+item.itemPrice * item.quantity,0)
     if (!isCartOpen) return null;
     return (
@@ -52,8 +73,8 @@ export default function CartModal({ isOpen, onClose }) {
                             <div className="flex flex-col gap-2">
                                 <button onClick={()=>{
                                     dispatch(closeCart())
-                                    navigate('/navigate')}
-                                    } className="w-full py-2 bg-gray-500 text-white rounded hover:bg-green-600">Checkout</button>
+                                    navigate(`/navigate/${totalAmount}/${cartItems.id}`)}
+                                    } className="w-full py-2 bg-gray-500 text-white rounded hover:bg-green-600">Pay Now</button>
 
                 <button onClick={() => dispatch(clearCart())} className="mt-4 w-full py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">Clear Cart</button>
                 </div>

@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import CartModal from "./components/CartModal";
 import Checkout from "./components/Checkout";
+import EsewaForm from "./components/Esewa";
 
 
 function App(){
@@ -17,7 +18,7 @@ function App(){
   <Route path="/cart" element={  <Cart/>}/>
   <Route path="/login" element={  <Login/>}/>
   <Route path="/signup" element={  <Signup/>}/>
-  <Route path="/navigate" element={  <Checkout/>}/>
+  <Route path="/navigate/:amount/:productId" element={  <EsewaForm/>}/>
   </Routes>
   <CartModal/>
   </BrowserRouter>)
