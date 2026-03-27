@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../store/themeSlice";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { openCart } from "../store/cartSlice";
 
 
@@ -19,8 +19,8 @@ export default function Navbar() {
     }
     return (
         <div className={`flex justify-between items-center p-4 shadow-md bg-gray-100 nav rounded-md ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
-            <h1 className="text-2xl font-bold font-display"><span className="mx-2"><i class="fa-regular fa-building"></i></span>
-                DineSpot
+            <h1 className="text-2xl font-bold font-display cursor-pointer"><span className="mx-2 cursor-pointer"><i class="fa-regular fa-building"></i></span>
+              <Link to={"/"}> DineSpot </Link>
             </h1>
             <div className="flex items-center gap-4">
                 <button
